@@ -2,12 +2,14 @@ import { Flex, Heading } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { Banner } from '../components/Banner';
 import { Header } from '../components/Header';
+import { IconTravelType } from '../components/IconTravelType';
 
 const Home: NextPage = () => {
   return (
     <Flex direction="column">
       <Header />
       <Banner />
+      <IconTravelType />
 
       <Heading
         textAlign="center"
@@ -16,7 +18,7 @@ const Home: NextPage = () => {
         fontSize={{ sm: 'lg', md: '3xl', lg: '4xl' }}
       >
         Vamos nessa? <br />
-        então escolha seu continente
+        Então escolha seu continente
       </Heading>
     </Flex>
   );
