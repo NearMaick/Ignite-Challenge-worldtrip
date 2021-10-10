@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, Box, Image } from '@chakra-ui/react';
+import { Flex, Heading, Text, Image } from '@chakra-ui/react';
 
 export function Banner(): JSX.Element {
   return (

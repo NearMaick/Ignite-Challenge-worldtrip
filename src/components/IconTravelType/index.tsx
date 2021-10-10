@@ -5,7 +5,7 @@ export function IconTravelType(): JSX.Element {
   return (
     <>
       <Flex w="100%" maxWidth={1480} flexWrap="wrap" justify="center">
-        <IconItem icon="cocktail" title="vida Noturna" />
+        <IconItem icon="cocktail" title="vida noturna" />
         <IconItem icon="surf" title="praia" />
         <IconItem icon="building" title="moderno" />
         <IconItem icon="museum" title="clássico" />
