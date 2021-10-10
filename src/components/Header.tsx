@@ -1,4 +1,5 @@
 import { Flex, Grid, Icon, Image } from '@chakra-ui/react';
+import { RiArrowLeftSLine } from 'react-icons/ri';
 
 export function Header(): JSX.Element {
   return (
@@ -12,12 +13,24 @@ export function Header(): JSX.Element {
       alignItems="center"
       justifyContent="center"
     >
-      <Image
-        src="assets/logo.svg"
-        alt="worldtrip logo"
-        w={{ sm: '24', md: '36', lg: '48' }}
-        justifySelf="center"
-      />
+      <Grid
+        h="100%"
+        mx="auto"
+        w="100%"
+        maxWidth="1160px"
+        alignItems="center"
+        justifyContent="center"
+        alignSelf="start"
+        templateColumns="repeat(3, 1fr)"
+      >
+        <Icon as={RiArrowLeftSLine} />
+        <Image
+          src="assets/logo.svg"
+          alt="worldtrip logo"
+          w={{ sm: '24', md: '36', lg: '48' }}
+          justifySelf="center"
+        />
+      </Grid>
     </Flex>
   );
 }
