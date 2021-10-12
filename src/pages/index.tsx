@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import { Banner } from '../components/Banner';
 import { Header } from '../components/Header';
 import { IconTravelType } from '../components/IconTravelType';
+import { Slider } from '../components/Slider';
 
 const Home: NextPage = () => {
   return (
@@ -20,6 +21,8 @@ const Home: NextPage = () => {
         Vamos nessa? <br />
         Então escolha seu continente
       </Heading>
+
+      <Slider />
     </Flex>
   );
 };
