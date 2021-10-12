@@ -28,8 +28,20 @@ export function SliderItem({
     >
       <Link href={`/continent/${slug}`}>
         <a>
-          <Heading>{title}</Heading>
-          <Text>{summary}</Text>
+          <Heading
+            fontSize={{ sm: '3xl', md: '4xl', lg: '5xl' }}
+            color="gray.100"
+          >
+            {title}
+          </Heading>
+          <Text
+            fontWeight="bold"
+            color="gray.300"
+            fontSize={{ sm: '0.8rem', md: '1xl', lg: '2xl' }}
+            mt={{ sm: '2', lg: '4' }}
+          >
+            {summary}
+          </Text>
         </a>
       </Link>
     </Flex>
