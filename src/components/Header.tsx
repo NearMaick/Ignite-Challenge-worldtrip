@@ -25,7 +25,7 @@ export function Header(): JSX.Element {
       >
         <Icon as={RiArrowLeftSLine} />
         <Image
-          src="assets/logo.svg"
+          src="/assets/logo.svg"
           alt="worldtrip logo"
           w={{ sm: '24', md: '36', lg: '48' }}
           justifySelf="center"
