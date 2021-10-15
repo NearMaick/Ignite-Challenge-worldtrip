@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+[Challenge](https://www.notion.so/Desafio-01-Interface-com-Chakra-UI-d1274f7fd7f54283b9173b7fd8003cc6)
+
 First, run the development server:
 
 ```bash
