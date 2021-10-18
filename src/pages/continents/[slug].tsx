@@ -7,20 +7,7 @@ import { Header } from '../../components/Header';
 import { getPrismicClient } from '../../services/prismic';
 import Prismic from '@prismicio/client';
 
-export interface ContinentProps {
-  continent: {
-    slug: string;
-    title: string;
-    description: string;
-    countries: string;
-    languages: string;
-    cities: string;
-    cities100: {
-      city: string;
-      country: string;
-    }[];
-  };
-}
+import { ContinentProps } from '../../types/ContinentProps';
 
 export default function Continent({ continent }: ContinentProps): JSX.Element {
   return (

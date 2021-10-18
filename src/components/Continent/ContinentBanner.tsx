@@ -1,7 +1,7 @@
 import { Flex, Heading } from '@chakra-ui/react';
 
 import { continents } from '../../assets/continents';
-import { ContinentProps } from '../../pages/continents/[slug]';
+import { ContinentProps } from '../../types/ContinentProps';
 
 const europe = continents.find(continent => continent.slug === 'europe');
 
