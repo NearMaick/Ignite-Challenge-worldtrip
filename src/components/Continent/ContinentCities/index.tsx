@@ -1,4 +1,5 @@
 import { Grid, Text, Heading, Image } from '@chakra-ui/react';
+import { useState } from 'react';
 import { City } from './City';
 
 const cities = [
@@ -10,7 +11,8 @@ const cities = [
   'Amsterdã',
 ];
 
-export function ContinentCities(): JSX.Element {
+export function ContinentCities({ continent }): JSX.Element {
+  const cities = continent.cities100;
   return (
     <>
       <Heading marginBottom="10" fontSize={{ sm: '2xl', lg: '4xl' }}>
@@ -27,7 +29,7 @@ export function ContinentCities(): JSX.Element {
         justifyContent="center"
       >
         {cities.map(city => (
-          <City key={city} city={city} />
+          <City key={city.city} city={city.city} country={city.country} />
         ))}
       </Grid>
     </>

@@ -4,7 +4,7 @@ import { continents } from '../../assets/continents';
 
 const europe = continents.find(continent => continent.slug === 'europe');
 
-export function ContinentBanner(): JSX.Element {
+export function ContinentBanner({ continent }): JSX.Element {
   return (
     <Flex
       w="100%"
@@ -22,7 +22,7 @@ export function ContinentBanner(): JSX.Element {
         fontSize={{ sm: '3xl', md: '4xl', lg: '5xl' }}
         color="gray.300"
       >
-        {europe?.title}
+        {continent.title}
       </Heading>
     </Flex>
   );

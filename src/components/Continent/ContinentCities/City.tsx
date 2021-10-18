@@ -2,9 +2,10 @@ import { Box, Flex, Text, Heading, Image } from '@chakra-ui/react';
 
 type CityProps = {
   city: string;
+  country: string;
 };
 
-export function City({ city }: CityProps): JSX.Element {
+export function City({ city, country }: CityProps): JSX.Element {
   return (
     <Box borderRadius="4" overflow="hidden">
       <Image
@@ -27,7 +28,7 @@ export function City({ city }: CityProps): JSX.Element {
             {city}
           </Heading>
           <Text marginTop="3" color="gray.500" fontWeight="semibold">
-            Reino Unido
+            {country}
           </Text>
         </Flex>
         <Image

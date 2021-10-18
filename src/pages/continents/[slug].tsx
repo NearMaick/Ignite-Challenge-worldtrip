@@ -8,14 +8,13 @@ import { getPrismicClient } from '../../services/prismic';
 import Prismic from '@prismicio/client';
 
 export default function Continent({ continent }): JSX.Element {
-  console.log(continent);
   return (
     <Flex flexDirection="column">
       <Header />
-      <ContinentBanner />
+      <ContinentBanner continent={continent} />
       <Flex direction="column" maxW="1160px" mx="auto" mb="10" px="1rem">
-        <ContinentContent />
-        <ContinentCities />
+        <ContinentContent continent={continent} />
+        <ContinentCities continent={continent} />
       </Flex>
     </Flex>
   );
