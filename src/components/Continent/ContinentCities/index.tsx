@@ -1,17 +1,8 @@
-import { Grid, Text, Heading, Image } from '@chakra-ui/react';
-import { useState } from 'react';
+import { Grid, Heading } from '@chakra-ui/react';
+import { ContinentProps } from '../../../pages/continents/[slug]';
 import { City } from './City';
 
-const cities = [
-  'Frankfurt',
-  'Londres',
-  'Dublin',
-  'Lisboa',
-  'Paris',
-  'Amsterdã',
-];
-
-export function ContinentCities({ continent }): JSX.Element {
+export function ContinentCities({ continent }: ContinentProps): JSX.Element {
   const cities = continent.cities100;
   return (
     <>

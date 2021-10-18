@@ -1,10 +1,7 @@
 import { Flex, Box, Text, Grid, Heading } from '@chakra-ui/react';
+import { ContinentProps } from '../../pages/continents/[slug]';
 
-import { continents } from '../../assets/continents';
-
-const europe = continents.find(continent => continent.slug === 'europe');
-
-export function ContinentContent({ continent }): JSX.Element {
+export function ContinentContent({ continent }: ContinentProps): JSX.Element {
   return (
     <Grid
       templateColumns={{ sm: '1fr', md: '1fr 1fr', lg: '1.2fr 1fr' }}

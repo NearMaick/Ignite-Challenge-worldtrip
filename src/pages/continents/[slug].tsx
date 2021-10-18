@@ -7,7 +7,22 @@ import { Header } from '../../components/Header';
 import { getPrismicClient } from '../../services/prismic';
 import Prismic from '@prismicio/client';
 
-export default function Continent({ continent }): JSX.Element {
+export interface ContinentProps {
+  continent: {
+    slug: string;
+    title: string;
+    description: string;
+    countries: string;
+    languages: string;
+    cities: string;
+    cities100: {
+      city: string;
+      country: string;
+    }[];
+  };
+}
+
+export default function Continent({ continent }: ContinentProps): JSX.Element {
   return (
     <Flex flexDirection="column">
       <Header />
@@ -54,7 +69,7 @@ export const getStaticProps: GetStaticProps = async context => {
     countries: String(response.data.countries),
     languages: String(response.data.languages),
     cities: String(response.data.cities),
-    cities100: response.data.cities100.map(city => {
+    cities100: response.data.cities100.map((city: any) => {
       return {
         city: city.city[0].text,
         country: city.country[0].text,

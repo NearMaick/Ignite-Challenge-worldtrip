@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   /* const response = await prismic.getByUID('continent', 'europe', {}); */
 
-  console.log(response);
+  // console.log(response);
 
   /* const continents = response.results.map(continent => {
     return {

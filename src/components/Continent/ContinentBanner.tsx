@@ -1,10 +1,11 @@
 import { Flex, Heading } from '@chakra-ui/react';
 
 import { continents } from '../../assets/continents';
+import { ContinentProps } from '../../pages/continents/[slug]';
 
 const europe = continents.find(continent => continent.slug === 'europe');
 
-export function ContinentBanner({ continent }): JSX.Element {
+export function ContinentBanner({ continent }: ContinentProps): JSX.Element {
   return (
     <Flex
       w="100%"
