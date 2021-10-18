@@ -1,9 +1,11 @@
 import { Flex, Heading } from '@chakra-ui/react';
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import { Banner } from '../components/Banner';
 import { Header } from '../components/Header';
 import { IconTravelType } from '../components/IconTravelType';
 import { Slider } from '../components/Slider';
+import { getPrismicClient } from '../services/prismic';
+import Prismic from '@prismicio/client';
 
 const Home: NextPage = () => {
   return (
@@ -28,3 +30,28 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const response = await prismic.query([
+    Prismic.Predicates.at('document.type', 'continents'),
+  ]);
+
+  /* const response = await prismic.getByUID('continent', 'europe', {}); */
+
+  console.log(response);
+
+  /* const continents = response.results.map(continent => {
+    return {
+      slug: continent.uid,
+      title: continent.data.title[0].text,
+      summary: continent.data.summary[0].text,
+      image: continent.data.image.url,
+    };
+  }); */
+
+  return {
+    props: {},
+  };
+};

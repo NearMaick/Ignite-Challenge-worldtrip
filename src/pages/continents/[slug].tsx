@@ -1,10 +1,14 @@
 import { Flex } from '@chakra-ui/react';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { ContinentBanner } from '../../components/Continent/ContinentBanner';
 import { ContinentCities } from '../../components/Continent/ContinentCities';
 import { ContinentContent } from '../../components/Continent/ContinentContent';
 import { Header } from '../../components/Header';
+import { getPrismicClient } from '../../services/prismic';
+import Prismic from '@prismicio/client';
 
-export default function Continent(): JSX.Element {
+export default function Continent({ continent }): JSX.Element {
+  console.log(continent);
   return (
     <Flex flexDirection="column">
       <Header />
@@ -16,3 +20,53 @@ export default function Continent(): JSX.Element {
     </Flex>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const prismic = getPrismicClient();
+  const continents = await prismic.query([
+    Prismic.Predicates.at('document.type', 'continents'),
+  ]);
+
+  const paths = continents.results.map(continent => {
+    return {
+      params: {
+        slug: continent.uid,
+      },
+    };
+  });
+
+  return {
+    fallback: true,
+    paths,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async context => {
+  const prismic = getPrismicClient();
+  const { slug }: any = context.params;
+  const response = await prismic.getByUID('continents', String(slug), {});
+
+  // console.log(JSON.stringify(response, null, ' '));
+
+  const continent = {
+    slug: response.uid,
+    title: response.data.title[0].text,
+    description: response.data.description[0].text,
+    countries: String(response.data.countries),
+    languages: String(response.data.languages),
+    cities: String(response.data.cities),
+    cities100: response.data.cities100.map(city => {
+      return {
+        city: city.city[0].text,
+        country: city.country[0].text,
+      };
+    }),
+  };
+
+  return {
+    props: {
+      continent,
+    },
+    revalidate: 1800,
+  };
+};
