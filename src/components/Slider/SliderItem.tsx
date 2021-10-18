@@ -26,7 +26,7 @@ export function SliderItem({
       bgSize="cover"
       textAlign="center"
     >
-      <Link href={`/continent/${slug}`}>
+      <Link href={`/continents/${slug}`}>
         <a>
           <Heading
             fontSize={{ sm: '3xl', md: '4xl', lg: '5xl' }}
