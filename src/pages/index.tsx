@@ -7,7 +7,16 @@ import { Slider } from '../components/Slider';
 import { getPrismicClient } from '../services/prismic';
 import Prismic from '@prismicio/client';
 
-const Home: NextPage = () => {
+export type ContinentsProps = {
+  continents: {
+    slug: string;
+    title: string;
+    subtitle: string;
+    image: string;
+  }[];
+};
+
+export default function Home({ continents }: ContinentsProps): JSX.Element {
   return (
     <Flex direction="column">
       <Header />
@@ -24,12 +33,10 @@ const Home: NextPage = () => {
         Então escolha seu continente
       </Heading>
 
-      <Slider />
+      <Slider continents={continents} />
     </Flex>
   );
-};
-
-export default Home;
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
@@ -38,20 +45,22 @@ export const getStaticProps: GetStaticProps = async () => {
     Prismic.Predicates.at('document.type', 'continents'),
   ]);
 
-  /* const response = await prismic.getByUID('continent', 'europe', {}); */
+  // const response = await prismic.getByUID('continents', 'europe', {});
 
-  // console.log(response);
-
-  /* const continents = response.results.map(continent => {
+  const continents = response.results.map(continent => {
     return {
       slug: continent.uid,
       title: continent.data.title[0].text,
-      summary: continent.data.summary[0].text,
-      image: continent.data.image.url,
+      subtitle: continent.data.subtitle[0].text,
+      image: continent.data.banner_image.url,
     };
-  }); */
+  });
+
+  // console.log(JSON.stringify(continents, null, ' '));
 
   return {
-    props: {},
+    props: {
+      continents,
+    },
   };
 };

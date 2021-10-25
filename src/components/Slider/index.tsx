@@ -8,17 +8,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { SliderItem } from './SliderItem';
+import { ContinentsProps } from '../../pages';
 
-import { continents } from '../../assets/continents';
-
-type Continent = {
-  url: string;
-  title: string;
-  summary: string;
-  slug: string;
-};
-
-export function Slider(): JSX.Element {
+export function Slider({ continents }: ContinentsProps): JSX.Element {
   return (
     <Flex w="100%" maxW="1240px" mx="auto" h={{ sm: '250px', lg: '450px' }}>
       <Swiper
@@ -29,12 +21,12 @@ export function Slider(): JSX.Element {
         pagination={{ clickable: true }}
         initialSlide={0}
       >
-        {continents.map((continent: Continent, index) => (
-          <SwiperSlide key={index}>
+        {continents.map(continent => (
+          <SwiperSlide key={continent.slug}>
             <SliderItem
-              image={continent.url}
+              image={continent.image}
               title={continent.title}
-              summary={continent.summary}
+              summary={continent.subtitle}
               slug={continent.slug}
             />
           </SwiperSlide>
