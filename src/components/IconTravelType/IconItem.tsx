@@ -7,7 +7,7 @@ type IconProps = {
 
 export function IconItem({ icon, title }: IconProps): JSX.Element {
   const isMobile = useBreakpointValue({
-    sm: true,
+    base: true,
     lg: false,
   });
 

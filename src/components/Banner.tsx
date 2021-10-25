@@ -37,7 +37,7 @@ export function Banner(): JSX.Element {
           src="assets/airplane.svg"
           alt="airplane"
           w={{ base: '300px', lg: '430px' }}
-          display={{ sm: 'none', lg: 'block' }}
+          display={{ base: 'none', lg: 'block' }}
           transform="translateY(48px)"
           ml="8"
         />
