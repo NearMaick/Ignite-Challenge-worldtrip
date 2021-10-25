@@ -4,7 +4,7 @@ import { IconItem } from './IconItem';
 export function IconTravelType(): JSX.Element {
   return (
     <>
-      <Flex w="100%" maxWidth={1480} flexWrap="wrap" justify="center">
+      <Flex w="100%" maxWidth={1480} flexWrap="wrap" justifyContent="center">
         <IconItem icon="cocktail" title="vida noturna" />
         <IconItem icon="surf" title="praia" />
         <IconItem icon="building" title="moderno" />

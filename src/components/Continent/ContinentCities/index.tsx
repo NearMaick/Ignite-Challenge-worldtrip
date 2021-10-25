@@ -1,6 +1,7 @@
 import { Grid, Heading } from '@chakra-ui/react';
-import { ContinentProps } from '../../../types/ContinentProps';
 import { City } from './City';
+
+import { ContinentProps } from '../../../types/ContinentProps';
 
 export function ContinentCities({ continent }: ContinentProps): JSX.Element {
   const cities = continent.cities100;

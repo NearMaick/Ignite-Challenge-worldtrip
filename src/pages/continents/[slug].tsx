@@ -1,11 +1,13 @@
-import { Flex } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { Flex } from '@chakra-ui/react';
+
+import { getPrismicClient } from '../../services/prismic';
+import Prismic from '@prismicio/client';
+
 import { ContinentBanner } from '../../components/Continent/ContinentBanner';
 import { ContinentCities } from '../../components/Continent/ContinentCities';
 import { ContinentContent } from '../../components/Continent/ContinentContent';
 import { Header } from '../../components/Header';
-import { getPrismicClient } from '../../services/prismic';
-import Prismic from '@prismicio/client';
 
 import { ContinentProps } from '../../types/ContinentProps';
 
@@ -46,8 +48,6 @@ export const getStaticProps: GetStaticProps = async context => {
   const prismic = getPrismicClient();
   const { slug }: any = context.params;
   const response = await prismic.getByUID('continents', String(slug), {});
-
-  // console.log(JSON.stringify(response, null, ' '));
 
   const continent = {
     slug: response.uid,

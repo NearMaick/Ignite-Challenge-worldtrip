@@ -1,20 +1,15 @@
+import { GetStaticProps } from 'next';
 import { Flex, Heading } from '@chakra-ui/react';
-import type { GetStaticProps, NextPage } from 'next';
+
+import Prismic from '@prismicio/client';
+import { getPrismicClient } from '../services/prismic';
+
 import { Banner } from '../components/Banner';
 import { Header } from '../components/Header';
 import { IconTravelType } from '../components/IconTravelType';
 import { Slider } from '../components/Slider';
-import { getPrismicClient } from '../services/prismic';
-import Prismic from '@prismicio/client';
 
-export type ContinentsProps = {
-  continents: {
-    slug: string;
-    title: string;
-    subtitle: string;
-    image: string;
-  }[];
-};
+import { ContinentsProps } from '../types/ContinentProps';
 
 export default function Home({ continents }: ContinentsProps): JSX.Element {
   return (
@@ -45,8 +40,6 @@ export const getStaticProps: GetStaticProps = async () => {
     Prismic.Predicates.at('document.type', 'continents'),
   ]);
 
-  // const response = await prismic.getByUID('continents', 'europe', {});
-
   const continents = response.results.map(continent => {
     return {
       slug: continent.uid,
@@ -55,8 +48,6 @@ export const getStaticProps: GetStaticProps = async () => {
       image: continent.data.banner_image.url,
     };
   });
-
-  // console.log(JSON.stringify(continents, null, ' '));
 
   return {
     props: {

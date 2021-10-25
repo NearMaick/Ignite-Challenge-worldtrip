@@ -3,12 +3,14 @@ import { Navigation, Pagination } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { SliderItem } from './SliderItem';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { SliderItem } from './SliderItem';
-import { ContinentsProps } from '../../pages';
+
+import { ContinentsProps } from '../../types/ContinentProps';
 
 export function Slider({ continents }: ContinentsProps): JSX.Element {
   return (

@@ -12,3 +12,12 @@ export interface ContinentProps {
     }[];
   };
 }
+
+export type ContinentsProps = {
+  continents: {
+    slug: string;
+    title: string;
+    subtitle: string;
+    image: string;
+  }[];
+};

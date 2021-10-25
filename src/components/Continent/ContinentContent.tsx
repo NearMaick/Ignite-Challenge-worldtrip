@@ -1,4 +1,5 @@
 import { Flex, Box, Text, Grid, Heading } from '@chakra-ui/react';
+
 import { ContinentProps } from '../../types/ContinentProps';
 
 export function ContinentContent({ continent }: ContinentProps): JSX.Element {
