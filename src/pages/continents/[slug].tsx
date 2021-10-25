@@ -54,6 +54,7 @@ export const getStaticProps: GetStaticProps = async context => {
     title: response.data.title[0].text,
     description: response.data.description[0].text,
     countries: String(response.data.countries),
+    image: response.data.banner_image.url,
     languages: String(response.data.languages),
     cities: String(response.data.cities),
     cities100: response.data.cities100.map((city: any) => {

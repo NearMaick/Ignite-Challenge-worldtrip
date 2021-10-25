@@ -3,6 +3,7 @@ export interface ContinentProps {
     slug: string;
     title: string;
     description: string;
+    image: string;
     countries: string;
     languages: string;
     cities: string;
